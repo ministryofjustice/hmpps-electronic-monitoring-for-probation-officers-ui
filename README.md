@@ -34,26 +34,6 @@ remove all kotlin references. Submit a PR to the Cloud Platform team in #ask-clo
 the Cloud Platform team can be found in
 the [Cloud Platform User Guide](https://user-guide.cloud-platform.service.justice.gov.uk/#cloud-platform-user-guide)
 
-## Renaming from HMPPS Template Typescript - github Actions
-
-Once the new repository is deployed. Navigate to the repository in github, and select the `Actions` tab.
-Click the link to `Enable Actions on this repository`.
-
-Find the Action workflow named: `rename-project-create-pr` and click `Run workflow`. This workflow will
-execute the `rename-project.bash` and create Pull Request for you to review. Review the PR and merge.
-
-Note: ideally this workflow would run automatically however due to a recent change github Actions are not
-enabled by default on newly created repos. There is no way to enable Actions other then to click the button in the UI.
-If this situation changes we will update this project so that the workflow is triggered during the bootstrap project.
-Further reading: <https://github.community/t/workflow-isnt-enabled-in-repos-generated-from-template/136421>
-
-The script takes six arguments:
-
-### New project name
-
-This should start with `hmpps-` e.g. `hmpps-prison-visits` so that it can be easily distinguished in github from
-other departments projects. Try to avoid using abbreviations so that others can understand easily what your project is.
-
 ### Slack channel for release notifications
 
 By default, release notifications are only enabled for production. The circleci configuration can be amended to send
