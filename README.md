@@ -21,19 +21,6 @@ found [here](https://dsdmoj.atlassian.net/wiki/spaces/NDSS/pages/3488677932/Type
 
 Documentation to create new service is located [here](https://tech-docs.hmpps.service.justice.gov.uk/applicationplatform/newservice-GHA/).
 
-## Creating a Cloud Platform namespace
-
-When deploying to a new namespace, you may wish to use the
-[templates project namespace](https://github.com/ministryofjustice/cloud-platform-environments/tree/main/namespaces/live.cloud-platform.service.justice.gov.uk/hmpps-templates-dev)
-as the basis for your new namespace. This namespace contains both the kotlin and typescript template projects, which
-is the usual way that projects are setup. This namespace includes an AWS elasticache setup - which is required by this
-template project.
-
-Copy this folder and update all the existing namespace references. If you only need the typescript configuration then
-remove all kotlin references. Submit a PR to the Cloud Platform team in #ask-cloud-platform. Further instructions from
-the Cloud Platform team can be found in
-the [Cloud Platform User Guide](https://user-guide.cloud-platform.service.justice.gov.uk/#cloud-platform-user-guide)
-
 ### Slack channel for release notifications
 
 By default, release notifications are only enabled for production. The circleci configuration can be amended to send
