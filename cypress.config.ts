@@ -12,9 +12,8 @@ export default defineConfig({
   taskTimeout: 60000,
   e2e: {
     setupNodeEvents(on) {
-      on('task', {
-        // reset: resetStubs,
-      })
+      // on('task', {
+      // })
     },
     baseUrl: 'http://localhost:3007',
     excludeSpecPattern: '**/!(*.cy).ts',
