@@ -11,10 +11,10 @@ export default defineConfig({
   },
   taskTimeout: 60000,
   e2e: {
-    setupNodeEvents(on) {
-      // on('task', {
-      // })
-    },
+    // setupNodeEvents(on) {
+    // on('task', {
+    // })
+    // },
     baseUrl: 'http://localhost:3007',
     excludeSpecPattern: '**/!(*.cy).ts',
     specPattern: 'integration_tests/e2e/**/*.cy.{js,jsx,ts,tsx}',
