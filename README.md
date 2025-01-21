@@ -187,6 +187,8 @@ You need to follow the three steps below.
 
 3) Run accessibility checks on the page. 
 `cy.checkA11y()`
+or to run accessibility check on a page with logging
+`cy.checkA11y(null, null, terminalLog)`
 
 ## Change log
 
