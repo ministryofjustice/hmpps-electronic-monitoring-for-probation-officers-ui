@@ -8,4 +8,11 @@ context('Home Page', () => {
     cy.visit('/')
     Page.verifyOnPage(HomePage)
   })
+
+  it('shows the welcome page with title and passes accessiblity scan', () => {
+    cy.visit('/')
+    cy.injectAxe()
+    Page.verifyOnPage(HomePage)
+    cy.checkA11y()
+  })
 })
