@@ -11,10 +11,20 @@ export default defineConfig({
   },
   taskTimeout: 60000,
   e2e: {
-    // setupNodeEvents(on) {
-    // on('task', {
-    // })
-    // },
+    setupNodeEvents(on) {
+      on('task', {
+        log(message) {
+          // eslint-disable-next-line no-console
+          console.log(message)
+          return null
+        },
+        table(message) {
+          // eslint-disable-next-line no-console
+          console.table(message)
+          return null
+        },
+      })
+    },
     baseUrl: 'http://localhost:3000',
     excludeSpecPattern: '**/!(*.cy).ts',
     specPattern: 'integration_tests/e2e/**/*.cy.{js,jsx,ts,tsx}',

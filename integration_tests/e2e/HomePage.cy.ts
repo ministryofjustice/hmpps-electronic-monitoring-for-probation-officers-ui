@@ -1,5 +1,6 @@
 import HomePage from '../pages/HomePage'
 import Page from '../pages/page'
+import terminalLog from '../support/logging/terminalLog'
 
 context('Home Page', () => {
   beforeEach(() => {})
@@ -11,8 +12,9 @@ context('Home Page', () => {
 
   it('shows the welcome page with title and passes accessiblity scan', () => {
     cy.visit('/')
-    cy.injectAxe()
     Page.verifyOnPage(HomePage)
-    cy.checkA11y()
+
+    cy.injectAxe()
+    cy.checkA11y(null, null, terminalLog)
   })
 })
