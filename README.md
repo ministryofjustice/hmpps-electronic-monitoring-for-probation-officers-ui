@@ -160,11 +160,13 @@ And then, to build the assets and start the app with esbuild:
 
 ### Running integration tests
 
-It's recommended you run the tests against the dev server e.g.
-`npm run start:dev`
+It's recommended you run the tests against the below e.g.
+`npm run start-feature`
+or 
+`npm run start-feature:dev`
 
 
-And then either, run tests in headless mode with:
+And on another terminal tab, run tests in headless mode with:
 
 `npm run int-test`
 
