@@ -1,4 +1,4 @@
-export default function terminalLog(violations) {
+export default function logA11yViolationsWithDescription(violations) {
   cy.task(
     'log',
     `${violations.length} accessibility violation${
