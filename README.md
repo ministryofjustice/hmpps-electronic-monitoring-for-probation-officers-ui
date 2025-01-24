@@ -114,16 +114,7 @@ These credentials are configured using the following env variables:
 
 ### Dependencies
 
-### HMPPS Auth
 
-To allow authenticated users to access your application you need to point it to a running instance of `hmpps-auth`.
-By default the application is configured to run against an instance running in docker that can be started
-via `docker-compose`.
-
-**NB:** It's common for developers to run against the instance of auth running in the development/T3 environment for
-local development.
-Most APIs don't have images with cached data that you can run with docker: setting up realistic stubbed data in sync
-across a variety of services is very difficult.
 
 ### REDIS
 
@@ -158,17 +149,6 @@ And then, to build the assets and start the app with esbuild:
 
 `npm run start:dev`
 
-### Logging in with a test user
-
-Once the application is running you should then be able to login with:
-
-username: AUTH_USER
-password: password123456
-
-To request specific users and roles then raise a PR
-to [update the seed data](https://github.com/ministryofjustice/hmpps-auth/blob/main/src/main/resources/db/dev/data/auth/V900_3__users.sql)
-for the in-memory DB used by Auth
-
 ### Run linter
 
 * `npm run lint` runs `eslint`.
@@ -180,21 +160,33 @@ for the in-memory DB used by Auth
 
 ### Running integration tests
 
-For local running, start a wiremock instance by:
+It's recommended you run the tests against the below e.g.
+`npm run start-feature`
+or 
+`npm run start-feature:dev`
 
-`docker compose -f docker-compose-test.yml up`
 
-Then run the server in test mode by:
-
-`npm run start-feature` (or `npm run start-feature:dev` to run with auto-restart on changes)
-
-And then either, run tests in headless mode with:
+And on another terminal tab, run tests in headless mode with:
 
 `npm run int-test`
 
 Or run tests with the cypress UI:
 
 `npm run int-test-ui`
+
+### Testing a page for accessiblity issues with Cypress AXE
+You can use Cypress AXE to automate the process of testing a page for accessiblity issues.
+
+You need to follow the three steps below.
+
+1) Navigate to the page you want to test. 
+`cy.visit('your-page-url')`
+
+2) Inject the Axe-core library into the page. 
+`cy.injectAxe()`
+
+3) Run accessibility checks on the page with logging
+`cy.checkA11y(null, null, logA11yViolationsWithDescription)`
 
 ## Change log
 
