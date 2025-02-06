@@ -1,10 +1,57 @@
 {% extends "../partials/layout.njk" %}
 
+{% block head %}
+  <link href="{{ '/assets/css/app.css' | assetMap }}" rel="stylesheet"/>
+{% endblock %}
 {% set pageTitle = applicationName + " - Home" %}
 {% set mainClasses = "app-container govuk-body" %}
 
 {% block content %}
+{# <!DOCTYPE html>
+<html lang="en">
+<body> #}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+  <div id="map" style="height: 500px;"></div>
+  
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
 
-  <h1>Welcome to Electronic Monitoring For Probation Officers</h1>
+    // Initialize the map.
+    const mapOptions = {
+        minZoom: 7,
+        maxZoom: 20,
+        center: [ `{{mapData.route[0].lat}}`, `{{mapData.route[0].lng}}` ],
+        zoom: 14,
+    };
+    const map = L.map('map', mapOptions);
+
+    // Load and display ZXY tile layer on the map.
+    const basemap = L.tileLayer('https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=' + '{{ API_KEY }}', {
+        maxZoom: 20,
+    }).addTo(map);
+
+    // Add the route as a polyline
+    const routeCoordinates = [
+      {% for point in mapData.route %}
+        [{{ point.lat }}, {{ point.lng }}]{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ];
+    L.polyline(routeCoordinates, { color: 'blue' }).addTo(map);
+
+    // Add markers for each point in the route
+    {% for point in route %}
+      L.marker([{{ point.lat }}, {{ point.lng }}]).addTo(map)
+        .bindPopup('{{ point.name }}: {{ point.lat }}, {{ point.lng }}');
+    {% endfor %}
+
+  </script>
+{# </body>
+</html> #}
+  {# <h1>Welcome to Electronic Monitoring For Probation Officers</h1>
+  <div id="map" style="height: 500px;"></div> #}
 
 {% endblock %}

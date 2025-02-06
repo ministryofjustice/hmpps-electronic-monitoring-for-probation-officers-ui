@@ -56,6 +56,7 @@ export default {
   production,
   https: process.env.NO_HTTPS === 'true' ? false : production,
   staticResourceCacheDuration: '1h',
+  osMapsAPI: process.env.OS_MAPS_API,
   redis: {
     enabled: get('REDIS_ENABLED', 'false', requiredInProduction) === 'true',
     host: get('REDIS_HOST', 'localhost', requiredInProduction),

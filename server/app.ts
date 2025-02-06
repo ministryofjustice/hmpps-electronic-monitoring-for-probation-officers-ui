@@ -9,7 +9,7 @@ import { appInsightsMiddleware } from './utils/azureAppInsights'
 import setUpHealthChecks from './middleware/setUpHealthChecks'
 import setUpStaticResources from './middleware/setUpStaticResources'
 import setUpWebRequestParsing from './middleware/setupRequestParsing'
-import setUpWebSecurity from './middleware/setUpWebSecurity'
+// import setUpWebSecurity from './middleware/setUpWebSecurity'
 import setUpWebSession from './middleware/setUpWebSession'
 
 import routes from './routes'
@@ -24,7 +24,7 @@ export default function createApp(services: Services): express.Application {
 
   app.use(appInsightsMiddleware())
   app.use(setUpHealthChecks(services.applicationInfo))
-  app.use(setUpWebSecurity())
+  // app.use(setUpWebSecurity())
   app.use(setUpWebSession())
   app.use(setUpWebRequestParsing())
   app.use(setUpStaticResources())
