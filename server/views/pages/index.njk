@@ -16,6 +16,46 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>.leaflet-control-attribution{ display: none;}</style>
 </head>
+  <h1>Locations of interest</h1>
+
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Offender: John Doe</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Date</th>
+        <th scope="col" class="govuk-table__header">Destination</th>
+        <th scope="col" class="govuk-table__header">Time Period</th>
+        <th scope="col" class="govuk-table__header"></th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">22/01/2025</th>
+        <td class="govuk-table__cell">Pub</td>
+        <td class="govuk-table__cell">19:00 - 22:34</td>
+        <td class="govuk-table__cell"><button class="govuk-button" data-module="govuk-button">Select</button></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">22/01/2024</th>
+        <td class="govuk-table__cell">Casino</td>
+        <td class="govuk-table__cell">22:34 - 23:04</td>
+        <td class="govuk-table__cell"><button class="govuk-button" data-module="govuk-button">Select</button></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">18/12/2024</th>
+        <td class="govuk-table__cell">Betting Shop</td>
+        <td class="govuk-table__cell">19:03 - 22:34</td>
+        <td class="govuk-table__cell"><button class="govuk-button" data-module="govuk-button">Select</button></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">18/12/2024</th>
+        <td class="govuk-table__cell">Hospital</td>
+        <td class="govuk-table__cell">22:24 - 05:34</td>
+        <td class="govuk-table__cell"><button class="govuk-button" data-module="govuk-button">Select</button></td>
+      </tr>
+    </tbody>
+  </table>
+
   <div id="map" style="height: 500px;"></div>
   
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
