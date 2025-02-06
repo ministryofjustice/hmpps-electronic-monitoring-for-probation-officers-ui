@@ -40,7 +40,7 @@
       </tr>
       <tr class="govuk-table__row">
         <th scope="row" class="govuk-table__header">2</th>
-        <th scope="row" class="govuk-table__header">22/01/2024</th>
+        <th scope="row" class="govuk-table__header">22/01/2025</th>
 
         <td class="govuk-table__cell">Casino</td>
         <td class="govuk-table__cell">22:34 - 23:04</td>
@@ -67,11 +67,8 @@
   
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   
-  
-
   <script>
-
-    
+  
     const selectRoute = (routeNumber) => {
       console.log('routeNumber: ',routeNumber)
     }
@@ -110,7 +107,7 @@
       setMapData()
       console.log('setting map')
       {% set firstTimeRender = true %}
-      console.log('hello ',{{firstTimeRender}})
+      console.log('firstTimeRender value ',{{firstTimeRender}})
     }
 
   </script>
