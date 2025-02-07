@@ -24,7 +24,7 @@ export default function routes({ auditService }: Services): Router {
       routes: [
         {
           subheading: 'Pub',
-          date: '22/11/2025',
+          date: '22/01/2025',
           timePeriod: '19:00 - 22:34',
           route: [
             { lat: 51.570749, lng: 0.053851 },
@@ -36,7 +36,7 @@ export default function routes({ auditService }: Services): Router {
         },
         {
           subheading: 'Casino',
-          date: '22/11/2025',
+          date: '22/01/2025',
           timePeriod: '22:34 - 02:19',
           route: [
             { lat: 51.570749, lng: 0.053851 },
