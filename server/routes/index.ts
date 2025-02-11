@@ -60,14 +60,6 @@ const mapData = {
       ],
     },
   ],
-  // old data
-  route: [
-    { lat: 51.570749, lng: 0.053851, name: 'Starting Point' },
-    { lat: 51.57641451607295, lng: 0.04550462833836705 },
-    { lat: 51.575658942892744, lng: 0.028824812996238663 },
-    // { lat: 51.57073, lng: 0.13855 },
-    { lat: 51.578081494306126, lng: 0.02587453690822975 },
-  ],
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

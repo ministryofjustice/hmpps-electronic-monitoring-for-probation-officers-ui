@@ -72,7 +72,7 @@
         minZoom: 7,
         maxZoom: 20,
         center: [
-          `{{mapData.route[0].lat}}`, `{{mapData.route[0].lng}}`
+          `{{mapData.routes[0].route[0].lat}}`, `{{mapData.routes[0].route[0].lng}}`
         ],
         zoom: 14
       };
@@ -85,7 +85,7 @@
 
       // Add the route as a polyline
       const routeCoordinates = [
-        {% for point in mapData.route %}
+        {% for point in mapData.routes[0].route %}
           [{{ point.lat }}, {{ point.lng }}]{% if not loop.last %},{% endif %}
         {% endfor %}
       ];
