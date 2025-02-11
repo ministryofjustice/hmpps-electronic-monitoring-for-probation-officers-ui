@@ -60,6 +60,7 @@
   <script>
     const mapDataAsJSON = JSON.parse('{{ mapData | dump | safe }}');
     let routeLayer;
+    let basemap;
 
     const selectRoute = (routeNumber) => {
       document.getElementById("selectedDate").textContent = `Date: ${mapDataAsJSON.routes[routeNumber].date}`
@@ -69,7 +70,9 @@
       const newRoute = mapDataAsJSON.routes[routeNumber].route.map(point => {
         return [point.lat,point.lng]
       })
+      // show new route
       routeLayer.setLatLngs(newRoute);
+
     }
 
     const setMapData = () => {
@@ -85,7 +88,7 @@
       const map = L.map('map', mapOptions);
 
       // Load and display ZXY tile layer on the map.
-      const basemap = L
+      basemap = L
         .tileLayer('https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=' + '{{ API_KEY }}', {maxZoom: 20})
         .addTo(map);
 
@@ -97,8 +100,7 @@
         .polyline(routeCoordinates, {color: 'blue'})
         .addTo(map);
 
-
-    console.log('routeLayer: ' ,routeLayer)
+      console.log('routeLayer: ' ,routeLayer)
   }
 
   if ({{firstTimeRender}} === false) {
@@ -109,7 +111,5 @@
   </script>
   {# </body>
 </html> #}
-  {# <h1>Welcome to Electronic Monitoring For Probation Officers</h1>
-  <div id="map" style="height: 500px;"></div> #}
 
 {% endblock %}
