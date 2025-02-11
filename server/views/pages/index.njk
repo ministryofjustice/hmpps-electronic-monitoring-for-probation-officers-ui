@@ -39,7 +39,7 @@
         <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header">{{loop.index}}</th>
           <th scope="row" class="govuk-table__header">{{route.date}}</th>
-          <td class="govuk-table__cell">{{route.subheading}}</td>
+          <td class="govuk-table__cell">{{route.destination}}</td>
           <td class="govuk-table__cell">{{route.timePeriod}}</td>
           <td class="govuk-table__cell">
             <button onclick={selectRoute({{loop.index0}})} class="govuk-button" data-module="govuk-button">Select</button>
@@ -49,6 +49,10 @@
     </tbody>
   </table>
 
+  <h2 id="selectedDate">Date: {{ selectedRoute.date }}</h2>
+  <h2 id="selectedDestination">Destination: {{selectedRoute.destination }}</h2>
+  <h2 id="selectedTimePeriod">Time Period: {{ selectedRoute.timePeriod }}</h2>
+
   <div id="map" style="height: 500px;"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -56,7 +60,10 @@
   <script>
 
     const selectRoute = (routeNumber) => {
-      console.log('routeNumber: ', routeNumber)
+      const mapDataAsJSON = JSON.parse('{{ mapData | dump | safe }}');
+      document.getElementById("selectedDate").textContent = `Date: ${mapDataAsJSON.routes[routeNumber].date}`
+      document.getElementById("selectedDestination").textContent = `Destination: ${mapDataAsJSON.routes[routeNumber].destination}`
+      document.getElementById("selectedTimePeriod").textContent = `Time Period: ${mapDataAsJSON.routes[routeNumber].timePeriod}`
     }
 
     const setMapData = () => {
