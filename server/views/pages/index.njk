@@ -58,12 +58,18 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
+    const mapDataAsJSON = JSON.parse('{{ mapData | dump | safe }}');
+    let routeLayer;
 
     const selectRoute = (routeNumber) => {
-      const mapDataAsJSON = JSON.parse('{{ mapData | dump | safe }}');
       document.getElementById("selectedDate").textContent = `Date: ${mapDataAsJSON.routes[routeNumber].date}`
       document.getElementById("selectedDestination").textContent = `Destination: ${mapDataAsJSON.routes[routeNumber].destination}`
       document.getElementById("selectedTimePeriod").textContent = `Time Period: ${mapDataAsJSON.routes[routeNumber].timePeriod}`
+
+      const newRoute = mapDataAsJSON.routes[routeNumber].route.map(point => {
+        return [point.lat,point.lng]
+      })
+      routeLayer.setLatLngs(newRoute);
     }
 
     const setMapData = () => {
@@ -83,22 +89,16 @@
         .tileLayer('https://api.os.uk/maps/raster/v1/zxy/Light_3857/{z}/{x}/{y}.png?key=' + '{{ API_KEY }}', {maxZoom: 20})
         .addTo(map);
 
-      // Add the route as a polyline
-      const routeCoordinates = [
-        {% for point in mapData.routes[0].route %}
-          [{{ point.lat }}, {{ point.lng }}]{% if not loop.last %},{% endif %}
-        {% endfor %}
-      ];
-      L
+      const routeCoordinates = mapDataAsJSON.routes[0].route.map(point => {
+        return [point.lat,point.lng]
+      })
+
+      routeLayer = L
         .polyline(routeCoordinates, {color: 'blue'})
         .addTo(map);
 
-      // Add markers for each point in the route{% for point in route %}
-      L
-        .marker([{{ point.lat }}, {{ point.lng }}])
-        .addTo(map)
-        .bindPopup('{{ point.name }}: {{ point.lat }}, {{ point.lng }}');
-    {% endfor %}
+
+    console.log('routeLayer: ' ,routeLayer)
   }
 
   if ({{firstTimeRender}} === false) {
