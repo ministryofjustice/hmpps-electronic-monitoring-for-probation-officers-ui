@@ -28,8 +28,8 @@ const mapData = {
       date: '22/01/2025',
       timePeriod: '22:34 - 02:19',
       route: [
-        { lat: 51.570749, lng: 0.053851 },
-        { lat: 51.57641451607295, lng: 0.04550462833836705 },
+        // { lat: 51.570749, lng: 0.053851 },
+        // { lat: 51.57641451607295, lng: 0.04550462833836705 },
         { lat: 51.575658942892744, lng: 0.028824812996238663 },
         // { lat: 51.57073, lng: 0.13855 },
         { lat: 51.578081494306126, lng: 0.02587453690822975 },
@@ -53,8 +53,8 @@ const mapData = {
       timePeriod: '22:34 - 05:11',
       route: [
         { lat: 51.570749, lng: 0.053851 },
-        { lat: 51.57641451607295, lng: 0.04550462833836705 },
-        { lat: 51.575658942892744, lng: 0.028824812996238663 },
+        // { lat: 51.57641451607295, lng: 0.04550462833836705 },
+        // { lat: 51.575658942892744, lng: 0.028824812996238663 },
         // { lat: 51.57073, lng: 0.13855 },
         { lat: 51.578081494306126, lng: 0.02587453690822975 },
       ],
@@ -73,17 +73,6 @@ export default function routes({ auditService }: Services): Router {
     const selectedRoute = mapData.routes[0]
     res.render('pages/index', { mapData, API_KEY, selectedRoute })
   })
-
-  // get('/:id', async (req, res) => {
-  //   // Access the 'name' parameter from the route
-  //   await auditService.logPageView(Page.EXAMPLE_PAGE, { who: 'Test User A', correlationId: req.id })
-
-  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //   const { id }: any = req.params
-
-  //   const selectedRoute = mapData.routes[id]
-  //   res.render('pages/index', { mapData, API_KEY, selectedRoute })
-  // })
 
   return router
 }
